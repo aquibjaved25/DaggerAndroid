@@ -1,12 +1,13 @@
 package com.myapplication.network.auth
 
-import okhttp3.ResponseBody
-import retrofit2.Call
+import com.myapplication.models.User
+import io.reactivex.rxjava3.core.Flowable
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface AuthApi {
 
-    @GET
-    suspend fun getFakeStuff() : Call<ResponseBody>
+    @GET("users/{id}")
+     fun getUser(@Path("id") id:Int) : Flowable<User>
 
 }
